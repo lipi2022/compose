@@ -12,35 +12,21 @@ import {
 
 export default function Index() {
   return (
-    <div className="bg-slate-200 h-screen flex justify-center pt-32">
-      <div className="bg-white w-3/5 h-64 shadow-md rounded-md">
-        <div className="grid grid-cols-1 ">
-          <div className="bg-slate-100 h-12 flex justify-center">
-            <div className="grid grid-cols-9 divide-x justify-center h-full w-full">
-              <div className="place-content-center">
-                <IconContext.Provider
-                  value={{
-                    color: "color",
-                    className: "",
-                  }}
-                >
-                  <div>
-                    <RiBold />
-                  </div>
-                </IconContext.Provider>
-              </div>
-              <div className="text-center">bold</div>
-              <div>italic</div>
-              <div>code</div>
-              <div>blockquote</div>
-              <div>ul</div>
-              <div>ol</div>
-              <div>image</div>
-              <div>save</div>
-            </div>
+    <div className="container bg-slate-100  h-screen pt-32 mx-auto flex justify-center">
+      <div className="bg-white w-6/12 h-64 shadow-md rounded-lg divide-y-2 divide-slate-50">
+        <div className="h-10 flex  items-center gap-4 pl-1">
+          <div className="hover:bg-slate-300 h-8 w-8 flex items-center justify-center">
+            <RiBold size={22} color="gray" title="bold" />
           </div>
-          <div className="white h-full"></div>
+          <RiItalic size={22} color="gray" title="bold" />
+          <RiCodeSSlashFill size={22} color="gray" title="bold" />
+          <RiChatQuoteLine size={22} color="gray" title="bold" />
+          <RiListUnordered size={22} color="gray" title="bold" />
+          <RiListOrdered size={22} color="gray" title="bold" />
+          <RiImageAddLine size={22} color="gray" title="bold" />
+          <RiSaveLine size={22} color="gray" title="bold" />
         </div>
+        <div className="pl-2.5 pt-2">write something</div>
       </div>
     </div>
   );
