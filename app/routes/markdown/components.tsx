@@ -49,7 +49,7 @@ export const SvgIcon = React.forwardRef(
     ref: Ref<HTMLSpanElement>
   ) => (
     <span
-      {...props}
+      {...props} // todo ,different format to iconh
       ref={ref}
       className={cx(
         "material-icons",

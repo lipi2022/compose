@@ -317,6 +317,11 @@
   dependencies:
     "@types/ms" "*"
 
+"@types/esrever@^0.2.0":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@types/esrever/-/esrever-0.2.1.tgz#9ff5155ef412848270ead4aaa611a8cdadcb9ab0"
+  integrity sha512-vRLFhQxGVkyUF7opxv66MQHoRSOBkbbitj1OGd6My4XR6HwCorUZxSiJejF3s4OxmEFTjfRRGwm6GUhuQETP6Q==
+
 "@types/estree-jsx@^0.0.1":
   version "0.0.1"
   resolved "https://repo.huaweicloud.com/repository/npm/@types/estree-jsx/-/estree-jsx-0.0.1.tgz"
@@ -1355,6 +1360,11 @@ escape-string-regexp@^4.0.0:
   resolved "https://repo.huaweicloud.com/repository/npm/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
   integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
 
+esrever@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/esrever/-/esrever-0.2.0.tgz#96e9d28f4f1b1a76784cd5d490eaae010e7407b8"
+  integrity sha1-lunSj08bGnZ4TNXUkOquAQ50B7g=
+
 estree-util-attach-comments@^2.0.0:
   version "2.0.0"
   resolved "https://repo.huaweicloud.com/repository/npm/estree-util-attach-comments/-/estree-util-attach-comments-2.0.0.tgz"
@@ -1783,10 +1793,10 @@ iconv-lite@0.4.24:
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
 
-immer@^9.0.6:
-  version "9.0.12"
-  resolved "https://repo.huaweicloud.com/repository/npm/immer/-/immer-9.0.12.tgz#2d33ddf3ee1d247deab9d707ca472c8c942a0f20"
-  integrity sha512-lk7UNmSbAukB5B6dh9fnh5D0bJTOFKxVg2cyJWTYrWRfhLrLMBquONcUs3aFq507hNoIZEDDh8lb8UtOizSMhA==
+immer@^7.0.0:
+  version "7.0.15"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-7.0.15.tgz#dc3bc6db87401659d2e737c67a21b227c484a4ad"
+  integrity sha512-yM7jo9+hvYgvdCQdqvhCNRRio0SCXc8xDPzA25SvKWa7b1WVPjLwQs1VYU5JPXjcJPTqAa5NP5dqpORGYBQ2AA==
 
 import-fresh@^3.1.0, import-fresh@^3.2.1:
   version "3.3.0"
@@ -1991,10 +2001,10 @@ is-plain-obj@^4.0.0:
   resolved "https://repo.huaweicloud.com/repository/npm/is-plain-obj/-/is-plain-obj-4.0.0.tgz"
   integrity sha512-NXRbBtUdBioI73y/HmOhogw/U5msYPC9DAtGkJXeFcFWSFZw0mCUsPxk/snTuJHzNKA8kLBK4rH97RMB1BfCXw==
 
-is-plain-object@^5.0.0:
-  version "5.0.0"
-  resolved "https://repo.huaweicloud.com/repository/npm/is-plain-object/-/is-plain-object-5.0.0.tgz#4427f50ab3429e9025ea7d52e9043a9ef4159344"
-  integrity sha512-VRSzKkbMm5jMDoKLbltAkFQ5Qr7VDiTFGXxYFXXowVj387GeGNOCsOH6Msy00SGZ3Fp84b1Naa1psqgcCIEP5Q==
+is-plain-object@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/is-plain-object/-/is-plain-object-3.0.1.tgz#662d92d24c0aa4302407b0d45d21f2251c85f85b"
+  integrity sha512-Xnpx182SBMrr/aBik8y+GuR4U1L9FqMSojwDQwPMmxyC6bvEqly9UBCxhauBF5vNh2gwWJNX6oDV7O+OM4z34g==
 
 is-reference@^3.0.0:
   version "3.0.0"
@@ -3380,34 +3390,36 @@ side-channel@^1.0.4:
     get-intrinsic "^1.0.2"
     object-inspect "^1.9.0"
 
-slate-history@^0.66.0:
-  version "0.66.0"
-  resolved "https://repo.huaweicloud.com/repository/npm/slate-history/-/slate-history-0.66.0.tgz#ac63fddb903098ceb4c944433e3f75fe63acf940"
-  integrity sha512-6MWpxGQZiMvSINlCbMW43E2YBSVMCMCIwQfBzGssjWw4kb0qfvj0pIdblWNRQZD0hR6WHP+dHHgGSeVdMWzfng==
+slate-history@^0.60.17:
+  version "0.60.17"
+  resolved "https://registry.yarnpkg.com/slate-history/-/slate-history-0.60.17.tgz#4a790a33fc28570d8f0ce03aa58d64d6797464c4"
+  integrity sha512-IH7455DOxfTTIF/NxZh88PQn70iX/u+Osq1SvVrIOT/oiMyK2DulMAOOKl4N8UbALnWgjvHlyoGXjpgTW3Y5eQ==
   dependencies:
-    is-plain-object "^5.0.0"
+    immer "^7.0.0"
+    is-plain-object "^3.0.0"
 
-slate-react@^0.72.9:
-  version "0.72.9"
-  resolved "https://repo.huaweicloud.com/repository/npm/slate-react/-/slate-react-0.72.9.tgz#b05dd533bd29dd2d4796b614a8d8e01f214bb714"
-  integrity sha512-FEsqB+D1R/h+w1eCtHH367Krw2X7vju2GjMRL/d0bUiCRXlV50J9I9TJizvi7aaZyqBY8BypCuIiq9nNmsulCA==
+slate-react@^0.60.17:
+  version "0.60.17"
+  resolved "https://registry.yarnpkg.com/slate-react/-/slate-react-0.60.17.tgz#7e6c38b25c4bdad4ae5bf7b325dbc554f65be5fa"
+  integrity sha512-gqsZPwZeTfV9aEGrU9gCiKaRu8oda/zYyWKwP31qzRL6hMaJ5d1BEicXLccZgdq+LoMbxA8dMOA+hLAsb19PVA==
   dependencies:
     "@types/is-hotkey" "^0.1.1"
     "@types/lodash" "^4.14.149"
     direction "^1.0.3"
     is-hotkey "^0.1.6"
-    is-plain-object "^5.0.0"
+    is-plain-object "^3.0.0"
     lodash "^4.17.4"
     scroll-into-view-if-needed "^2.2.20"
-    tiny-invariant "1.0.6"
 
-slate@^0.72.8:
-  version "0.72.8"
-  resolved "https://repo.huaweicloud.com/repository/npm/slate/-/slate-0.72.8.tgz#5a018edf24e45448655293a68bfbcf563aa5ba81"
-  integrity sha512-/nJwTswQgnRurpK+bGJFH1oM7naD5qDmHd89JyiKNT2oOKD8marW0QSBtuFnwEbL5aGCS8AmrhXQgNOsn4osAw==
+slate@^0.60.17:
+  version "0.60.17"
+  resolved "https://registry.yarnpkg.com/slate/-/slate-0.60.17.tgz#a57896552e953bd04f43dbf2843cfc0a1d6cdbf7"
+  integrity sha512-zwdqCZcuX+vLj5vr30CxQKXo4zuYOX+g9R1HS7O2u3ym9CcYP2ri/hSFdJfGbIuSz7ncSo55kQHcbipuBw7seA==
   dependencies:
-    immer "^9.0.6"
-    is-plain-object "^5.0.0"
+    "@types/esrever" "^0.2.0"
+    esrever "^0.2.0"
+    immer "^7.0.0"
+    is-plain-object "^3.0.0"
     tiny-warning "^1.0.3"
 
 source-map-js@^1.0.2:
@@ -3601,11 +3613,6 @@ tar@^6.0.2:
     minizlib "^2.1.1"
     mkdirp "^1.0.3"
     yallist "^4.0.0"
-
-tiny-invariant@1.0.6:
-  version "1.0.6"
-  resolved "https://repo.huaweicloud.com/repository/npm/tiny-invariant/-/tiny-invariant-1.0.6.tgz#b3f9b38835e36a41c843a3b0907a5a7b3755de73"
-  integrity sha512-FOyLWWVjG+aC0UqG76V53yAWdXfH8bO6FNmyZOuUrzDzK8DI3/JRY25UD7+g49JWM1LXwymsKERB+DzI0dTEQA==
 
 tiny-warning@^1.0.3:
   version "1.0.3"
