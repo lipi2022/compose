@@ -1,6 +1,4 @@
 import React, { useCallback, useMemo, useState, MouseEvent } from "react";
-import { IconContext } from "react-icons";
-
 import {
   Editor,
   Transforms,
@@ -10,7 +8,6 @@ import {
 } from "slate";
 import { withHistory } from "slate-history";
 import { Editable, withReact, useSlate, Slate } from "slate-react";
-import { ToolButton } from "./components";
 import isHotkey from "is-hotkey";
 import { CustomElement, CustomText } from "./custom-types";
 import { BlockButton, MarkButton, PureButton, toggleMark } from "./components";
@@ -130,13 +127,16 @@ export default function Compose() {
           <MarkButton editor={editor} format="italic"></MarkButton>
           <MarkButton editor={editor} format="underline"></MarkButton>
           <MarkButton editor={editor} format="code"></MarkButton>
-
           <BlockButton editor={editor} format="paragraph"></BlockButton>
-          <BlockButton editor={editor} format="blockquote"></BlockButton>
-          <BlockButton editor={editor} format="heading-one"></BlockButton>
+          <BlockButton
+            editor={editor}
+            format="bulleted-list"
+          ></BlockButton>{" "}
+          <BlockButton editor={editor} format="check-list-item"></BlockButton>
+          <BlockButton editor={editor} format="block-quote"></BlockButton>
+          <BlockButton editor={editor} format="heading"></BlockButton>
           <BlockButton editor={editor} format="heading-two"></BlockButton>
           <BlockButton editor={editor} format="heading-three"></BlockButton>
-
           <PureButton editor={editor} format="image"></PureButton>
           <PureButton editor={editor} format="upload"></PureButton>
         </div>

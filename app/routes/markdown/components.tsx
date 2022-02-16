@@ -1,4 +1,9 @@
-import React, { Ref, PropsWithChildren } from "react";
+import React, {
+  Ref,
+  PropsWithChildren,
+  useState,
+  MouseEventHandler,
+} from "react";
 import ReactDOM from "react-dom";
 import { cx, css } from "@emotion/css";
 import {
@@ -8,62 +13,11 @@ import {
   Descendant,
   Element as SlateElement,
 } from "slate";
-import {
-  RiBold,
-  RiItalic,
-  RiListUnordered,
-  RiListOrdered,
-  RiImageAddLine,
-  RiSaveLine,
-  RiCodeSSlashFill,
-  RiChatQuoteLine,
-  RiBookReadLine,
-} from "react-icons/ri";
+
 import { CustomElement, CustomText } from "./custom-types";
 import { Icon } from "./icons";
 
 const LIST_TYPES: string[] = ["numbered-list", "bulleted-list"];
-
-interface BaseProps {
-  className: string;
-  [key: string]: unknown;
-}
-type OrNull<T> = T | null;
-
-export const ToolButton = React.forwardRef(
-  (
-    {
-      className,
-      active,
-      reversed,
-      ...props
-    }: PropsWithChildren<
-      {
-        active: boolean;
-        reversed: boolean;
-      } & BaseProps
-    >,
-    ref: Ref<HTMLSpanElement>
-  ) => (
-    <span
-      {...props}
-      ref={ref}
-      className={cx(
-        className,
-        css`
-          cursor: pointer;
-          color: ${reversed
-            ? active
-              ? "white"
-              : "#aaa"
-            : active
-            ? "black"
-            : "#ccc"};
-        `
-      )}
-    />
-  )
-);
 
 export const PureButton = ({
   editor,
@@ -72,10 +26,22 @@ export const PureButton = ({
   editor: Editor;
   format: string;
 }) => {
+  let light_color = "#bcbcbc";
+  let dark_color = "black";
+  const [color, setColor] = useState(light_color);
+  let size = "18";
   return (
-    <ToolButton>
-      <SvgIcon format={format}></SvgIcon>
-    </ToolButton>
+    <div
+      className="hover:bg-slate-100 h-8 w-8 flex items-center justify-center"
+      onMouseEnter={() => {
+        setColor(dark_color);
+      }}
+      onMouseLeave={() => {
+        setColor(light_color);
+      }}
+    >
+      <Icon format={format} color={color} width={size} height={size}></Icon>
+    </div>
   );
 };
 
@@ -87,21 +53,16 @@ export const MarkButton = ({
   format: string;
 }) => {
   return (
-    <ToolButton
+    <MarkIcon
+      format={format}
       active={isMarkActive(editor, format)}
-      onMouseDown={(event: MouseEvent) => {
-        event.preventDefault();
-        toggleMark(editor, format);
-      }}
-    >
-      <SvgIcon format={format}></SvgIcon>
-    </ToolButton>
+      editor={editor}
+    ></MarkIcon>
   );
 };
 
 const isMarkActive = (editor: Editor, format: string) => {
   const marks = Editor.marks(editor);
-  // console.log(marks);
   return marks ? (marks as any)[format] === true : false; // to check
 };
 
@@ -123,15 +84,11 @@ export const BlockButton = ({
   format: string;
 }) => {
   return (
-    <ToolButton
+    <BlockIcon
+      format={format}
       active={isBlockActive(editor, format)}
-      onMouseDown={(event: MouseEvent) => {
-        event.preventDefault();
-        toggleBlock(editor, format);
-      }}
-    >
-      <SvgIcon format={format}></SvgIcon>
-    </ToolButton>
+      editor={editor}
+    ></BlockIcon>
   );
 };
 const isBlockActive = (editor: Editor, format: string) => {
@@ -179,14 +136,69 @@ const toggleBlock = (editor: Editor, format: string) => {
   }
 };
 
-const SvgIcon = ({ format }: { format: string }) => {
-  let icon;
-  let color = "#bcbcbc";
-  let hover_color = "black";
+const MarkIcon = ({
+  format,
+  active,
+  editor,
+}: {
+  format: string;
+  editor: Editor;
+  active?: boolean;
+}) => {
+  let light_color = "#bcbcbc";
+  let dark_color = "black";
+  let mark_color = active ? dark_color : light_color;
+  const [color, setColor] = useState(mark_color);
   let size = "18";
 
   return (
-    <div className="hover:bg-slate-100 h-8 w-8 flex items-center justify-center">
+    <div
+      className="hover:bg-slate-100 h-8 w-8 flex items-center justify-center"
+      onMouseEnter={() => {
+        setColor(dark_color);
+      }}
+      onMouseLeave={() => {
+        setColor(light_color);
+      }}
+      onMouseDown={(event) => {
+        event.preventDefault();
+        toggleMark(editor, format);
+      }}
+    >
+      <Icon format={format} color={color} width={size} height={size}></Icon>
+    </div>
+  );
+};
+
+const BlockIcon = ({
+  format,
+  active,
+  editor,
+}: {
+  format: string;
+  editor: Editor;
+  active?: boolean;
+}) => {
+  let light_color = "#bcbcbc";
+  let dark_color = "black";
+  let mark_color = active ? dark_color : light_color;
+  const [color, setColor] = useState(mark_color);
+  let size = "18";
+
+  return (
+    <div
+      className="hover:bg-slate-100 h-8 w-8 flex items-center justify-center"
+      onMouseEnter={() => {
+        setColor(dark_color);
+      }}
+      onMouseLeave={() => {
+        setColor(light_color);
+      }}
+      onMouseDown={(event) => {
+        event.preventDefault();
+        toggleBlock(editor, format);
+      }}
+    >
       <Icon format={format} color={color} width={size} height={size}></Icon>
     </div>
   );
