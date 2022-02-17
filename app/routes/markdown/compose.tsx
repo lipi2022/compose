@@ -30,6 +30,7 @@ const Element = ({
 }) => {
   switch (element.type) {
     case "block-quote":
+      console.log("block quote");
       return <blockquote {...attributes}>{children}</blockquote>;
     case "bulleted-list":
       return <ul {...attributes}>{children}</ul>;
@@ -55,6 +56,7 @@ const Leaf = ({
   children: React.ReactNode;
   leaf: CustomText;
 }) => {
+  // console.log(leaf);
   if (leaf.bold) {
     children = <strong>{children}</strong>;
   }
@@ -123,22 +125,19 @@ export default function Compose() {
         onChange={(value) => setValue(value)}
       >
         <div className="h-10 flex  items-center gap-4 pl-2">
-          <MarkButton editor={editor} format="bold"></MarkButton>
-          <MarkButton editor={editor} format="italic"></MarkButton>
-          <MarkButton editor={editor} format="underline"></MarkButton>
-          <MarkButton editor={editor} format="code"></MarkButton>
-          <BlockButton editor={editor} format="paragraph"></BlockButton>
-          <BlockButton
-            editor={editor}
-            format="bulleted-list"
-          ></BlockButton>{" "}
-          <BlockButton editor={editor} format="check-list-item"></BlockButton>
-          <BlockButton editor={editor} format="block-quote"></BlockButton>
-          <BlockButton editor={editor} format="heading"></BlockButton>
-          <BlockButton editor={editor} format="heading-two"></BlockButton>
-          <BlockButton editor={editor} format="heading-three"></BlockButton>
-          <PureButton editor={editor} format="image"></PureButton>
-          <PureButton editor={editor} format="upload"></PureButton>
+          <MarkButton format="bold"></MarkButton>
+          <MarkButton format="italic"></MarkButton>
+          <MarkButton format="underline"></MarkButton>
+          <MarkButton format="code"></MarkButton>
+          <BlockButton format="paragraph"></BlockButton>
+          <BlockButton format="bulleted-list"></BlockButton>{" "}
+          <BlockButton format="check-list-item"></BlockButton>
+          <BlockButton format="block-quote"></BlockButton>
+          <BlockButton format="heading"></BlockButton>
+          <BlockButton format="heading-two"></BlockButton>
+          <BlockButton format="heading-three"></BlockButton>
+          <PureButton format="image"></PureButton>
+          <PureButton format="upload"></PureButton>
         </div>
         <div className="pl-4 pt-2">
           <Editable

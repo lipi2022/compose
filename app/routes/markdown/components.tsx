@@ -13,19 +13,14 @@ import {
   Descendant,
   Element as SlateElement,
 } from "slate";
+import { useSlate } from "slate-react";
 
 import { CustomElement, CustomText } from "./custom-types";
 import { Icon } from "./icons";
 
 const LIST_TYPES: string[] = ["numbered-list", "bulleted-list"];
 
-export const PureButton = ({
-  editor,
-  format,
-}: {
-  editor: Editor;
-  format: string;
-}) => {
+export const PureButton = ({ format }: { format: string }) => {
   let light_color = "#bcbcbc";
   let dark_color = "black";
   const [color, setColor] = useState(light_color);
@@ -45,19 +40,28 @@ export const PureButton = ({
   );
 };
 
-export const MarkButton = ({
-  editor,
-  format,
-}: {
-  editor: Editor;
-  format: string;
-}) => {
+export const MarkButton = ({ format }: { format: string }) => {
+  const editor = useSlate();
+  let light_color = "#bcbcbc";
+  let dark_color = "black";
+  let size = "18";
+
   return (
-    <MarkIcon
-      format={format}
-      active={isMarkActive(editor, format)}
-      editor={editor}
-    ></MarkIcon>
+    <div
+      className="hover:bg-slate-100 h-8 w-8 flex items-center justify-center"
+      onMouseDown={(event) => {
+        event.preventDefault();
+        toggleMark(editor, format);
+        console.log(editor);
+      }}
+    >
+      <Icon
+        format={format}
+        color={isMarkActive(editor, format) ? dark_color : light_color}
+        width={size}
+        height={size}
+      ></Icon>
+    </div>
   );
 };
 
@@ -76,19 +80,28 @@ export const toggleMark = (editor: Editor, format: string) => {
   }
 };
 
-export const BlockButton = ({
-  editor,
-  format,
-}: {
-  editor: Editor;
-  format: string;
-}) => {
+export const BlockButton = ({ format }: { format: string }) => {
+  let editor = useSlate();
+  let light_color = "#bcbcbc";
+  let dark_color = "black";
+  let size = "18";
+
   return (
-    <BlockIcon
-      format={format}
-      active={isBlockActive(editor, format)}
-      editor={editor}
-    ></BlockIcon>
+    <div
+      className="hover:bg-slate-100 h-8 w-8 flex items-center justify-center"
+      onMouseDown={(event) => {
+        event.preventDefault();
+        toggleMark(editor, format);
+        console.log(editor);
+      }}
+    >
+      <Icon
+        format={format}
+        color={isBlockActive(editor, format) ? dark_color : light_color}
+        width={size}
+        height={size}
+      ></Icon>
+    </div>
   );
 };
 const isBlockActive = (editor: Editor, format: string) => {
@@ -134,72 +147,4 @@ const toggleBlock = (editor: Editor, format: string) => {
     const block = { type: format, children: [] };
     Transforms.wrapNodes(editor, block as CustomElement);
   }
-};
-
-const MarkIcon = ({
-  format,
-  active,
-  editor,
-}: {
-  format: string;
-  editor: Editor;
-  active?: boolean;
-}) => {
-  let light_color = "#bcbcbc";
-  let dark_color = "black";
-  let mark_color = active ? dark_color : light_color;
-  const [color, setColor] = useState(mark_color);
-  let size = "18";
-
-  return (
-    <div
-      className="hover:bg-slate-100 h-8 w-8 flex items-center justify-center"
-      onMouseEnter={() => {
-        setColor(dark_color);
-      }}
-      onMouseLeave={() => {
-        setColor(light_color);
-      }}
-      onMouseDown={(event) => {
-        event.preventDefault();
-        toggleMark(editor, format);
-      }}
-    >
-      <Icon format={format} color={color} width={size} height={size}></Icon>
-    </div>
-  );
-};
-
-const BlockIcon = ({
-  format,
-  active,
-  editor,
-}: {
-  format: string;
-  editor: Editor;
-  active?: boolean;
-}) => {
-  let light_color = "#bcbcbc";
-  let dark_color = "black";
-  let mark_color = active ? dark_color : light_color;
-  const [color, setColor] = useState(mark_color);
-  let size = "18";
-
-  return (
-    <div
-      className="hover:bg-slate-100 h-8 w-8 flex items-center justify-center"
-      onMouseEnter={() => {
-        setColor(dark_color);
-      }}
-      onMouseLeave={() => {
-        setColor(light_color);
-      }}
-      onMouseDown={(event) => {
-        event.preventDefault();
-        toggleBlock(editor, format);
-      }}
-    >
-      <Icon format={format} color={color} width={size} height={size}></Icon>
-    </div>
-  );
 };
