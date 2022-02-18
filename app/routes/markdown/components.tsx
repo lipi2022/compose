@@ -15,26 +15,16 @@ import {
 } from "slate";
 import { useSlate } from "slate-react";
 
-import { CustomElement, CustomText } from "./custom-types";
+import { CustomElement, CustomText, ImageElement } from "./custom-types";
 import { Icon } from "./icons";
 
 const LIST_TYPES: string[] = ["numbered-list", "bulleted-list"];
 
 export const PureButton = ({ format }: { format: string }) => {
-  let light_color = "#bcbcbc";
-  let dark_color = "black";
-  const [color, setColor] = useState(light_color);
+  let color = "#bcbcbc";
   let size = "18";
   return (
-    <div
-      className="hover:bg-slate-100 h-8 w-8 flex items-center justify-center"
-      onMouseEnter={() => {
-        setColor(dark_color);
-      }}
-      onMouseLeave={() => {
-        setColor(light_color);
-      }}
-    >
+    <div className="hover:bg-slate-100 h-8 w-8 flex items-center justify-center">
       <Icon format={format} color={color} width={size} height={size}></Icon>
     </div>
   );
@@ -91,7 +81,7 @@ export const BlockButton = ({ format }: { format: string }) => {
       className="hover:bg-slate-100 h-8 w-8 flex items-center justify-center"
       onMouseDown={(event) => {
         event.preventDefault();
-        toggleMark(editor, format);
+        toggleBlock(editor, format);
         console.log(editor);
       }}
     >
@@ -147,4 +137,10 @@ const toggleBlock = (editor: Editor, format: string) => {
     const block = { type: format, children: [] };
     Transforms.wrapNodes(editor, block as CustomElement);
   }
+};
+
+const insertImage = (editor: Editor, url: string) => {
+  const text = { text: "" };
+  const image: ImageElement = { type: "image", url, children: [text] };
+  Transforms.insertNodes(editor, image);
 };

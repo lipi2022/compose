@@ -129,11 +129,10 @@ export default function Compose() {
           <MarkButton format="italic"></MarkButton>
           <MarkButton format="underline"></MarkButton>
           <MarkButton format="code"></MarkButton>
-          <BlockButton format="paragraph"></BlockButton>
-          <BlockButton format="bulleted-list"></BlockButton>{" "}
-          <BlockButton format="check-list-item"></BlockButton>
+          <BlockButton format="listol"></BlockButton>
+          <BlockButton format="listul"></BlockButton>
           <BlockButton format="block-quote"></BlockButton>
-          <BlockButton format="heading"></BlockButton>
+          <BlockButton format="heading-one"></BlockButton>
           <BlockButton format="heading-two"></BlockButton>
           <BlockButton format="heading-three"></BlockButton>
           <PureButton format="image"></PureButton>

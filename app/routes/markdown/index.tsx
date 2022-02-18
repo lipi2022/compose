@@ -1,24 +1,3 @@
-import React, { useCallback, useMemo, useState, MouseEvent } from "react";
-import { IconContext } from "react-icons";
-import {
-  RiBold,
-  RiItalic,
-  RiListUnordered,
-  RiListOrdered,
-  RiImageAddLine,
-  RiSaveLine,
-  RiCodeSSlashFill,
-  RiChatQuoteLine,
-} from "react-icons/ri";
-import {
-  Editor,
-  Transforms,
-  createEditor,
-  Descendant,
-  Element as SlateElement,
-} from "slate";
-import { withHistory } from "slate-history";
-
 import Compose from "./compose";
 
 export default function Index() {
