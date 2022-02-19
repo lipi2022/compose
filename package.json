@@ -2,7 +2,8 @@
   "private": true,
   "name": "compose",
   "description": "",
-  "license": "",
+  "license": "Apache-2.0",
+  "author": "lipi2022@petalmail.com",
   "scripts": {
     "build": "npm run build:css && remix build",
     "build:css": "tailwindcss -i ./styles/tailwind.css -o ./app/tailwind.css --minify",
