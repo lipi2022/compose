@@ -28,7 +28,7 @@ export default function ImageModal({ show }: { show: boolean }) {
 
   return (
     <div className="container  bg-slate-300 w-screen h-screen mx-auto pt-32">
-      <div className="container pt-4 bg-slate-50 w-72 min-h-96 mx-auto flex flex-col  shadow-md rounded-md ">
+      <div className="container pt-4 bg-slate-50 max-w-lg min-h-96 mx-auto flex flex-col  shadow-md rounded-md ">
         <div
           className={dragStyle}
           onDragEnter={(e) => {
