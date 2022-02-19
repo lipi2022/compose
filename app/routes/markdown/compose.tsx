@@ -143,7 +143,7 @@ export default function Compose() {
             renderElement={renderElement}
             renderLeaf={renderLeaf}
             placeholder="Enter some rich text…"
-            spellCheck
+            spellCheck={false}
             autoFocus
             onKeyDown={(event) => {
               for (const hotkey in HOTKEYS) {
