@@ -1,53 +1,14 @@
-# Welcome to Remix!
+# compose
 
-- [Remix Docs](https://remix.run/docs)
+## note
 
-## Development
+B8_yjPiPAWihtIOOU8UtGA==
 
-From your terminal:
+GOOG1ENCBVEPSEOW5YUBQQFAGMK2PLIDRWRGMN5QKCEJGRJHHVQCBVVBA2IUY
 
-```sh
-npm run dev
-```
+sMBL0SnEzNsfb3DO39/T18XD8aRanCzvzZM81HX6
 
-This starts your app in development mode, rebuilding assets on file changes.
+GOOG2C4QCNHW26U6OBVNJCOF
+XzK9c0nNJNA1D3siYOyQAhgyTSjmABeE5Z4lZ5Wz
 
-## Deployment
-
-First, build your app for production:
-
-```sh
-npm run build
-```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `remix build`
-
-- `build/`
-- `public/build/`
-
-### Using a Template
-
-When you ran `npx create-remix@latest` there were a few choices for hosting. You can run that again to create a new project, then copy over your `app/` folder to the new project that's pre-configured for your target server.
-
-```sh
-cd ..
-# create a new project, and pick a pre-configured host
-npx create-remix@latest
-cd my-new-remix-app
-# remove the new project's app (not the old one!)
-rm -rf app
-# copy your app over
-cp -R ../my-old-remix-app/app app
-```
+v48SOxLsxI-gM4Kt5ykdYQ==
