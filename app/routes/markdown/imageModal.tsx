@@ -77,9 +77,9 @@ export default function ImageModal({ show }: { show: boolean }) {
           <p className="text-sm text-slate-400">to upload image (max 5MiB)</p>
         </div>{" "}
       </div>
-      <div className="flex flex-row">
+      <div className="flex flex-row justify-center space-x-6 pr-4">
         <button
-          className="rounded-md mx-auto mb-4 bg-slate-200 w-48 h-10 text-slate-800"
+          className="rounded-md  mb-4 bg-slate-200 w-48 h-10 text-slate-800"
           onClick={() => {
             setSvgVisible(true);
             setImgVisible(false);
@@ -88,7 +88,7 @@ export default function ImageModal({ show }: { show: boolean }) {
         >
           reset
         </button>
-        <button className="rounded-md mx-auto mb-4 bg-teal-400 w-48 h-10 text-teal-50">
+        <button className="rounded-md mb-4 bg-teal-400 w-48 h-10 text-teal-50">
           upload
         </button>
       </div>
