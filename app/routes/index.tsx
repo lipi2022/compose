@@ -36,7 +36,7 @@ export default function Index() {
         <button className="rounded-md mb-4 bg-teal-500 w-36 h-10 text-teal-50">
           Get started
         </button>
-        <img src={heroshot}></img>
+        <img className="pt-6" src={heroshot}></img>
       </div>
     </div>
   );
